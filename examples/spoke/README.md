@@ -11,4 +11,5 @@ export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
+![Spoke](https://user-images.githubusercontent.com/42842390/201030655-26e71419-e8b8-412f-ac52-1472f6535b53.png)
 
