@@ -3,9 +3,6 @@ locals {
   rgoh_hub_region              = "eastus2"
   rgoh_hub_resource_group_name = "RGOH-hubeastus2"
   environment                  = "hub"
-  rgoh_hub_subscription_id     = ""
-  client_id                    = ""
-  tenant_id                    = ""
 }
 
 module "rgoh_hub" {
