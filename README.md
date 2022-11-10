@@ -11,6 +11,7 @@ In addition, the modules deploy Azure resources that make up a standard producti
 
 ### Examples
 - Examples of using the modules exist under the examples/ subdirectory at the root of the repository.
-
+```
 - examples/main-hub.tf : Deploys the Hub
 - examples/main-hub.tf : Deploys the Spoke
+```
