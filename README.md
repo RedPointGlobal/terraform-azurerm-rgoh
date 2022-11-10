@@ -7,8 +7,4 @@ In addition, the modules deploy Azure resources that make up a standard producti
 ![Blank diagram (1)](https://user-images.githubusercontent.com/42842390/200983171-0d3c512d-3c1a-4994-a063-a353d08bcdc5.png)
 
 ## Assumptions
-- The spoke and Hub Network VNETs are in different subscriptions.
-
-## Abbreviations
-- RGOH - rgOne Hosted
-- RG   - Resource Group
+- The modules assume the spoke and Hub Network VNETs are in different Azure subscriptions.
