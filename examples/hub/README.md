@@ -12,3 +12,4 @@ export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
 
+### Inputs
