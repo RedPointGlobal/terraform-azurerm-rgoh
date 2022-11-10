@@ -16,9 +16,13 @@ The Spoke is an isolated environment for a Redpoint rgOne hosted customer whose 
 ### Assumptions
 - The modules assume the spoke and Hub Network VNETs are in different Azure subscriptions.
 
-### Examples
-- Examples of using the modules exist under the examples/ subdirectory at the root of the repository.
+### Example Usage
+Please refer to the examples/ directory at the root of this repository . You can execute terraform apply command in the examples folder to try the modules
+
+We assume that you have setup service principal's credentials in your environment variables like below: The service principal must have minimum Contributor access on the subscription in which you intend to deploy the resources.
 ```
-- examples/main-hub.tf : Deploys the Hub
-- examples/main-spoke.tf : Deploys the Spoke
+export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
+export ARM_TENANT_ID="<azure_subscription_tenant_id>"
+export ARM_CLIENT_ID="<service_principal_appid>"
+export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
