@@ -13,3 +13,5 @@ export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
 
 ### Inputs
+
+![Hub](https://user-images.githubusercontent.com/42842390/201028214-05d9cb7f-8289-4589-9eb2-02d4b5445200.png)
