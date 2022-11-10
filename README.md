@@ -11,3 +11,4 @@ In addition, the modules deploy Azure resources that make up a standard producti
 ## Abbreviations
 - RGOH - rgOne Hosted
 - RG   - Resource Group
+![Blank diagram](https://user-images.githubusercontent.com/42842390/200982906-d9b00cfe-0543-43e0-961e-f18cf43d48d2.png)
