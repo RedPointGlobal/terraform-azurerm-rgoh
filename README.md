@@ -17,7 +17,7 @@ The Spoke is an isolated environment for a Redpoint rgOne hosted customer whose 
 - The modules assume the spoke and Hub Network VNETs are in different Azure subscriptions.
 
 ### Example Usage
-Please refer to the examples/ directory at the root of this repository . You can execute the ```terraform apply``` command in the examples folder to try the modules
+Please refer to the ```examples/``` directory at the root of this repository . You can execute the ```terraform apply``` command in the examples folder to try the modules
 
 We assume that you have setup service principal's credentials in your environment variables like below: The service principal must have "Contributor" or "Owner" Role assigned on the target subscription
 ```
