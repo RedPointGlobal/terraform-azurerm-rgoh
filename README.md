@@ -4,7 +4,7 @@
 This repository contains Terraform modules that deploy a security hardened hub & spoke virtual network topology in Azure. 
 
 In addition, the modules deploy Azure resources that make up a standard production cloud environment for a Redpoint rgOne Client, with the hub virtual network acting as the central point of connectivity.
-![Blank diagram](https://user-images.githubusercontent.com/42842390/201025253-06bab19e-21eb-4edc-a0d3-57a00d46f7ce.png)
+![Blank diagram (1)](https://user-images.githubusercontent.com/42842390/201026669-c7cd135a-c3b0-4428-a920-68b3a7165a69.png)
 The architecture consists of the following aspects:
 
 ### RGOH Hub  
