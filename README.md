@@ -8,3 +8,9 @@ In addition, the modules deploy Azure resources that make up a standard producti
 
 ### Assumptions
 - The modules assume the spoke and Hub Network VNETs are in different Azure subscriptions.
+
+### Examples
+- Examples of using the modules exist under the examples/ subdirectory at the root of the repository.
+
+- examples/main-hub.tf : Deploys the Hub
+- examples/main-hub.tf : Deploys the Spoke
