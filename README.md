@@ -19,7 +19,7 @@ The Spoke is an isolated environment for a Redpoint rgOne hosted customer whose 
 ### Example Usage
 Please refer to the examples/ directory at the root of this repository . You can execute terraform apply command in the examples folder to try the modules
 
-We assume that you have setup service principal's credentials in your environment variables like below: The service principal must have minimum Contributor access on the subscription in which you intend to deploy the resources.
+We assume that you have setup service principal's credentials in your environment variables like below: The service principal must have "Contributor" or "Owner" Role assigned on the target subscription
 ```
 export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
 export ARM_TENANT_ID="<azure_subscription_tenant_id>"
