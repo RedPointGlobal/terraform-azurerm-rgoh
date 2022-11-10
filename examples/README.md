@@ -4,6 +4,7 @@
 ### Prerequisites
 
   ### Terraform Provider Configuration
+We recommend using either a Service Principal or Managed Service Identity when running Terraform non-interactively (such as when running Terraform in a CI server) - and authenticating using the Azure CLI when running Terraform locally.
 ```
 export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
 export ARM_TENANT_ID="<azure_subscription_tenant_id>"
