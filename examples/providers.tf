@@ -12,15 +12,15 @@ terraform {
 
 
 provider "azurerm" {
-  client_id       = local.client_id
+  client_id       = var.client_id
   client_secret   = var.client_secret
-  tenant_id       = local.tenant_id
-  subscription_id = local.rgoh_spoke_subscription_id
+  tenant_id       = var.tenant_id
+  subscription_id = var.subscription_id
   features {}
 }
 
 provider "azuread" {
-  client_id     = local.client_id
+  client_id     = var.client_id
   client_secret = var.client_secret
-  tenant_id     = local.tenant_id
+  tenant_id     = var.tenant_id
 }
