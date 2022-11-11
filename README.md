@@ -47,4 +47,4 @@ export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
-### Module Outputs
+For more details, refer to the module README within the examples folder
