@@ -7,7 +7,7 @@ locals {
   rgoh_hub_virtual_network_name      = "vnet-hub-eastus2"
 
   // SPOKE
-  rgoh_spoke_client_name               = "rgoh-client-1"
+  rgoh_spoke_client_name               = "rgoh-client1"
   rgoh_spoke_client_prefix             = "rgohc1"
   rgoh_spoke_region                    = "eastus2"
   rgoh_spoke_resource_group_name       = "RGOH-client-1"
@@ -37,7 +37,7 @@ module "spoke" {
 
   // VIRTUAL NETWORK
   virtual_network_address_space    = ["10.160.8.0/23"]
-  virtual_network_name             = "vnet-exple-primary"
+  virtual_network_name             = "vnet-rgoh-client1"
   virtual_network_dns_servers      = ["10.153.12.68"]
   firewall_subnet_address_prefix   = ["10.160.8.0/28"]
   default_route_internet           = "10.153.12.68" # Internal IP of Hub firewall

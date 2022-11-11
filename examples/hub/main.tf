@@ -3,14 +3,14 @@ locals {
   rgoh_hub_region              = "eastus2"
   rgoh_hub_resource_group_name = "RGOH-hubeastus2"
   environment                  = "hub"
+  subscription_id              = "aa47f583-fdf8-4ed6-acf8-46fcd7015701"
 }
 
 module "rgoh_hub" {
-  source                   = "../modules/hub/"
-  resource_group_name      = local.rgoh_hub_resource_group_name
-  location                 = local.rgoh_hub_region
-  defender_for_cloud_scope = "/subscriptions/${local.rgoh_hub_subscription_id}"
-
+  source              = "../../modules/hub/"
+  resource_group_name = local.rgoh_hub_resource_group_name
+  location            = local.rgoh_hub_region
+  subscription_id     = local.subscription_id
   // ADDONS
   create_ddos_protection_plan    = true
   create_firewall                = true

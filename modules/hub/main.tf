@@ -1,3 +1,7 @@
+locals {
+  if_ddos_enabled        = var.create_ddos_protection_plan ? [{}] : []
+}
+
 // RESOURCE GROUP
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
@@ -73,6 +77,7 @@ resource "azurerm_firewall" "afw" {
 // VIRTUAL NETWORK
 
 resource "azurerm_network_ddos_protection_plan" "ddos" {
+  count               = var.create_ddos_protection_plan ? 1 : 0
   name                = "ddos-pplan-${var.location}"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -85,9 +90,13 @@ resource "azurerm_virtual_network" "vnet" {
   address_space       = var.virtual_network_address_space
   dns_servers         = var.virtual_network_dns_servers
 
-  ddos_protection_plan {
-    enable = true
-    id     = azurerm_network_ddos_protection_plan.ddos.id
+  dynamic "ddos_protection_plan" {
+    for_each = local.if_ddos_enabled
+
+    content {
+      id     = azurerm_network_ddos_protection_plan.ddos[0].id
+      enable = true
+    }
   }
 
   tags = var.tags
@@ -184,7 +193,7 @@ resource "azurerm_virtual_network_gateway" "hub" {
 
 // DEFENDER FOR CLOUD
 resource "azurerm_security_center_workspace" "defender" {
-  scope        = var.defender_for_cloud_scope
+  scope        = "/subscriptions/${var.subscription_id}"
   workspace_id = azurerm_log_analytics_workspace.loga.id
 
   depends_on = [azurerm_log_analytics_workspace.loga]
