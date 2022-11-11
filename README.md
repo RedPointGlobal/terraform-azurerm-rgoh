@@ -19,9 +19,22 @@ The following resources are created
 - Local Network Gateway
 - VPN Connection
 - VNET Peering to Spoke 
+- Network Watcher Flow Logs
+- Azure Diagnostics
 ```
 ### RGOH Spoke 
 The Spoke is an isolated environment for a Redpoint rgOne hosted customer whose workloads are in their own virtual networks, managed separately from other spokes. 
+The following resources are created
+```
+- Azure Virtual Network
+- Azure Virtual Desktop
+- Azure SQL Server and DB
+- Virtual Machines for RPDM and RPI
+- AKS Cluster for Mercury and MDM
+- VNET Peering to Hub
+- Network Watcher Flow Logs 
+- Azure Diagnostics
+```
 
 ### Assumptions
 - The modules assume the spoke and Hub Network VNETs are in different Azure subscriptions.
