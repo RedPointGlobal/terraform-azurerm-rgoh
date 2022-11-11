@@ -19,6 +19,7 @@ The following core resources are created
 - DDos Protection Plan
 - Virtual Network Gateway
 - Local Network Gateway
+- NAT Gateway
 - VPN Connection
 - VNET Peering to Spoke 
 - Network Watcher Flow Logs

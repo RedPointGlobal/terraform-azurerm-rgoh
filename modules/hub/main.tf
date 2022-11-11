@@ -1,5 +1,5 @@
 locals {
-  if_ddos_enabled        = var.create_ddos_protection_plan ? [{}] : []
+  if_ddos_enabled = var.create_ddos_protection_plan ? [{}] : []
 }
 
 // RESOURCE GROUP
@@ -191,6 +191,44 @@ resource "azurerm_virtual_network_gateway" "hub" {
   }
 }
 
+// LOCAL NETWORK GATEWAY
+data "azurerm_virtual_network_gateway" "hub" {
+  name                = "vgw-hub-${var.location}"
+  resource_group_name = azurerm_resource_group.rg.name
+
+  depends_on = [azurerm_virtual_network_gateway.hub]
+}
+
+output "gateway_id" {
+  value = data.azurerm_virtual_network_gateway.hub.id
+}
+
+resource "azurerm_local_network_gateway" "vpn" {
+  count               = var.create_local_network_gateway ? 1 : 0
+  name                = "lngw-hub-${var.location}"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = var.location
+  gateway_address     = var.local_vpn_gateway_address
+  address_space       = var.prisma_access_vpn_addresses
+}
+
+resource "azurerm_virtual_network_gateway_connection" "vpn" {
+  count                      = var.create_local_network_gateway ? 1 : 0
+  name                       = "vpnconn-${var.location}"
+  location                   = var.location
+  resource_group_name        = azurerm_resource_group.rg.name
+  type                       = "IPsec"
+  tags                       = var.tags
+  virtual_network_gateway_id = data.azurerm_virtual_network_gateway.hub.id
+  local_network_gateway_id   = azurerm_local_network_gateway.vpn[count.index].id
+  shared_key                 = var.vpn_connection_shared_key
+
+  depends_on = [
+    azurerm_local_network_gateway.vpn, azurerm_virtual_network_gateway.hub
+  ]
+
+}
+
 // DEFENDER FOR CLOUD
 resource "azurerm_security_center_workspace" "defender" {
   scope        = "/subscriptions/${var.subscription_id}"
@@ -204,4 +242,36 @@ resource "azurerm_security_center_subscription_pricing" "defender" {
   tier          = "Standard"
   resource_type = element(var.defender_for_cloud_resource_types, count.index)
 
+}
+
+// NAT GATEWAY
+resource "azurerm_public_ip_prefix" "nat" {
+  count               = var.create_nat_gateway ? 1 : 0
+  name                = "natgw-hub-${var.location}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  prefix_length       = 28
+  zones               = ["1"]
+}
+
+resource "azurerm_nat_gateway" "nat" {
+  count               = var.create_nat_gateway ? 1 : 0
+  name                = "natgw-hub-${var.location}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  sku_name            = "Standard"
+  zones               = ["1"]
+
+}
+
+resource "azurerm_nat_gateway_public_ip_prefix_association" "nat" {
+  count               = var.create_nat_gateway ? 1 : 0
+  nat_gateway_id      = azurerm_nat_gateway.nat[count.index].id
+  public_ip_prefix_id = azurerm_public_ip_prefix.nat[count.index].id
+}
+
+resource "azurerm_subnet_nat_gateway_association" "firewall" {
+  count          = var.create_nat_gateway ? 1 : 0
+  subnet_id      = data.azurerm_subnet.firewall.id
+  nat_gateway_id = azurerm_nat_gateway.nat[count.index].id
 }

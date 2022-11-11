@@ -3,11 +3,13 @@ variable "virtual_network_name" {}
 variable "resource_group_name" {}
 variable "create_firewall" { type = bool }
 variable "create_virtual_network_gateway" { type = bool }
+variable "create_local_network_gateway" { type = bool }
 variable "subscription_id" {}
-
-variable "create_ddos_protection_plan" {
-  type = bool
-}
+variable "prisma_access_vpn_addresses" { type = list(string) }
+variable "create_ddos_protection_plan" { type = bool }
+variable "vpn_connection_shared_key" { type = string }
+variable "local_vpn_gateway_address" { type = string }
+variable "create_nat_gateway" { type = bool }
 
 variable "virtual_network_address_space" {
   type = list(string)

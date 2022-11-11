@@ -9,6 +9,9 @@ locals {
   virtual_network_dns_servers      = ["10.153.12.68"] # Internal IP address of Azure Firewall
   firewall_subnet_address_prefixes = ["10.175.8.0/26"]
   gateway_subnet_address_prefix    = ["10.175.9.0/26"]
+  vpn_connection_shared_key        = "examplekey" # Generate a strong 32-character pre-shared key.
+  local_vpn_gateway_address        = "134.238.183.191"
+  prisma_access_vpn_addresses      = ["10.172.190.0/24", "10.172.192.0/22", "10.172.200.0/23", "10.172.202.0/23", "10.172.204.0/23"]
 }
 
 module "rgoh_hub" {
@@ -16,16 +19,19 @@ module "rgoh_hub" {
   resource_group_name = local.rgoh_hub_resource_group_name
   location            = local.rgoh_hub_region
   subscription_id     = local.subscription_id
-  // ADDONS
+
+  // VIRTUAL NETWORK
   create_ddos_protection_plan    = true
   create_firewall                = true
   create_virtual_network_gateway = true
-
-  // VIRTUAL NETWORK
-  virtual_network_address_space = local.virtual_network_address_space
-  virtual_network_name          = local.virtual_network_name
-  virtual_network_dns_servers   = local.virtual_network_dns_servers
-
+  create_local_network_gateway   = true
+  create_nat_gateway             = true
+  virtual_network_address_space  = local.virtual_network_address_space
+  virtual_network_name           = local.virtual_network_name
+  virtual_network_dns_servers    = local.virtual_network_dns_servers
+  prisma_access_vpn_addresses    = local.prisma_access_vpn_addresses
+  vpn_connection_shared_key      = local.vpn_connection_shared_key
+  local_vpn_gateway_address      = local.local_vpn_gateway_address
   tags = {
     provisioner = "terraform"
     client      = "${local.environment}"

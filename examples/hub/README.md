@@ -14,11 +14,13 @@ export ARM_CLIENT_SECRET="<service_principal_password>"
 ### Module Outputs
 The following core resources are created
 ```
+- Resource Group
 - Azure Virtual Network
 - Azure Firewall
 - DDos Protection Plan
 - Virtual Network Gateway
 - Local Network Gateway
+- NAT Gateway
 - VPN Connection
 - VNET Peering to Spoke 
 - Network Watcher Flow Logs 

@@ -417,7 +417,7 @@ resource "azurerm_private_endpoint" "mssql" {
   depends_on = [azurerm_mssql_server.mssql]
 
   lifecycle {
-    ignore_changes = [subnet_id,private_dns_zone_group, private_service_connection]
+    ignore_changes = [subnet_id, private_dns_zone_group, private_service_connection]
   }
 }
 
