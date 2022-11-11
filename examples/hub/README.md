@@ -12,7 +12,7 @@ export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
 ### Module Outputs
-The following resources are created
+The following core resources are created
 ```
 - Azure Virtual Network
 - Azure Firewall
@@ -21,6 +21,10 @@ The following resources are created
 - Local Network Gateway
 - VPN Connection
 - VNET Peering to Spoke 
+- Network Watcher Flow Logs 
+- Azure Diagnostics
+- Log Analytics Workspace
+- Storage account for Azure monitor diagnostics
 ```
 ![Hub (1)](https://user-images.githubusercontent.com/42842390/201029461-7359695b-b305-478c-8ef6-db67820d2dae.png)
 
