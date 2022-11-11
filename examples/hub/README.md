@@ -27,5 +27,6 @@ The following core resources are created
 - Log Analytics Workspace
 - Storage account for Azure monitor diagnostics
 ```
-![Hub (1)](https://user-images.githubusercontent.com/42842390/201029461-7359695b-b305-478c-8ef6-db67820d2dae.png)
+![Hub (2)](https://user-images.githubusercontent.com/42842390/201256856-5aec829b-281b-43ef-aac9-ae30ac68d5cf.png)
+
 
