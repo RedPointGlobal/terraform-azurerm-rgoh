@@ -7,6 +7,8 @@ In addition, the modules deploy Azure resources that make up a standard producti
 ![Blank diagram (2)](https://user-images.githubusercontent.com/42842390/201027152-19b7fc8e-9749-4991-9016-1ea3a06da6b7.png)
 The architecture consists of the following aspects:
 
+- The modules assume the spoke and Hub Network VNETs are in different Azure subscriptions.
+
 ### RGOH Hub  
 The hub is the central point of connectivity to all RGOH spokes. It hosts services consumed by workloads hosted in the spoke virtual networks.
 
@@ -35,10 +37,6 @@ The following resources are created
 - Network Watcher Flow Logs 
 - Azure Diagnostics
 ```
-
-### Assumptions
-- The modules assume the spoke and Hub Network VNETs are in different Azure subscriptions.
-
 ### Example Usage
 Please refer to the ```examples/``` directory at the root of this repository . You can execute the ```terraform apply``` command in the examples folder to try the modules
 
