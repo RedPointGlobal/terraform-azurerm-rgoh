@@ -54,7 +54,7 @@ module "rgoh_hub" {
       private_link_service_network_policies_enabled = true
     }
   }
-/*
+  /*
   virtual_network_peering = {
 
     "spoke1" = {
