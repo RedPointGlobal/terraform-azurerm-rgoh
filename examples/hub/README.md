@@ -11,6 +11,16 @@ export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
-### Outputs
+### Module Outputs
+The following resources are created
+```
+- Azure Virtual Network
+- Azure Firewall
+- DDos Protection Plan
+- Virtual Network Gateway
+- Local Network Gateway
+- VPN Connection
+- VNET Peering to Spoke 
+```
 ![Hub (1)](https://user-images.githubusercontent.com/42842390/201029461-7359695b-b305-478c-8ef6-db67820d2dae.png)
 
