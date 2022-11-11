@@ -12,6 +12,7 @@ locals {
   vpn_connection_shared_key        = "examplekey" # Generate a strong 32-character pre-shared key.
   local_vpn_gateway_address        = "134.238.183.191"
   prisma_access_vpn_addresses      = ["10.172.190.0/24", "10.172.192.0/22", "10.172.200.0/23", "10.172.202.0/23", "10.172.204.0/23"]
+  # Dont change the prisma_access_vpn_addresses value
 }
 
 module "rgoh_hub" {
@@ -53,4 +54,14 @@ module "rgoh_hub" {
       private_link_service_network_policies_enabled = true
     }
   }
+/*
+  virtual_network_peering = {
+
+    "spoke1" = {
+      spoke_virtual_network_id  = "value"
+      spoke_vnet_name           = "value"
+      spoke_vnet_resource_group = "value"
+    }
+  }
+  */
 }

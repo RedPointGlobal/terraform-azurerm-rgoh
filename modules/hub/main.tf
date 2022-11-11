@@ -275,3 +275,21 @@ resource "azurerm_subnet_nat_gateway_association" "firewall" {
   subnet_id      = data.azurerm_subnet.firewall.id
   nat_gateway_id = azurerm_nat_gateway.nat[count.index].id
 }
+
+/*
+resource "azurerm_virtual_network_peering" "hub" {
+  for_each                  = var.virtual_network_peering
+  name                      = "peer-${each.value.spoke_vnet_name}"
+  resource_group_name       = azurerm_resource_group.rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet.name
+  remote_virtual_network_id = each.value.spoke_virtual_network_id
+}
+
+resource "azurerm_virtual_network_peering" "spoke" {
+  for_each                  = var.virtual_network_peering
+  name                      = "peer-${var.virtual_network_name}"
+  resource_group_name       = each.value.spoke_vnet_resource_group
+  virtual_network_name      = each.value.spoke_vnet_name
+  remote_virtual_network_id = azurerm_virtual_network.vnet.id
+}
+*/

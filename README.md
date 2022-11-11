@@ -21,7 +21,6 @@ The following core resources are created
 - Local Network Gateway
 - NAT Gateway
 - VPN Connection
-- VNET Peering to Spoke 
 - Network Watcher Flow Logs
 - Azure Diagnostics
 ```

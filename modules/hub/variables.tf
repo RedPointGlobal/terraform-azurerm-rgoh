@@ -11,6 +11,16 @@ variable "vpn_connection_shared_key" { type = string }
 variable "local_vpn_gateway_address" { type = string }
 variable "create_nat_gateway" { type = bool }
 
+/*
+variable "virtual_network_peering" {
+  type = map(object({
+    spoke_vnet_name           = string
+    spoke_virtual_network_id  = string
+    spoke_vnet_resource_group = string
+  }))
+}
+*/
+
 variable "virtual_network_address_space" {
   type = list(string)
 }
