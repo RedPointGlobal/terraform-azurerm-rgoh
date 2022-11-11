@@ -10,6 +10,16 @@ The architecture consists of the following aspects:
 ### RGOH Hub  
 The hub is the central point of connectivity to all RGOH spokes. It hosts services consumed by workloads hosted in the spoke virtual networks.
 
+The following resources are created
+```
+- Azure Virtual Network
+- Azure Firewall
+- DDos Protection Plan
+- Virtual Network Gateway
+- Local Network Gateway
+- VPN Connection
+- VNET Peering to Spoke 
+```
 ### RGOH Spoke 
 The Spoke is an isolated environment for a Redpoint rgOne hosted customer whose workloads are in their own virtual networks, managed separately from other spokes. 
 
@@ -26,3 +36,4 @@ export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
 export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
+### Module Outputs
