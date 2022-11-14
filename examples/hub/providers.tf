@@ -11,13 +11,6 @@ terraform {
   }
 }
 
-cloud {
-  organization = "redpointglobal"
-
-  workspaces {
-    tags = ["rgoh", "azure", "argo", "sandbox"]
-  }
-}
 
 provider "azurerm" {
   client_id       = var.client_id
@@ -31,4 +24,14 @@ provider "azuread" {
   client_id     = var.client_id
   client_secret = var.client_secret
   tenant_id     = var.tenant_id
+}
+
+terraform {
+  cloud {
+    organization = "redpointglobal"
+
+    workspaces {
+      name = "azure-rgoh-hub-sandbox"
+    }
+  }
 }
