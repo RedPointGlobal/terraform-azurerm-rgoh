@@ -17,7 +17,7 @@ locals {
   tenant_id                            = ""
 }
 
-module "spoke" {
+module "rgoh_spoke" {
   source                       = "../../modules/spoke/"
   client                       = local.rgoh_spoke_client_name
   client_prefix                = local.rgoh_spoke_client_prefix
