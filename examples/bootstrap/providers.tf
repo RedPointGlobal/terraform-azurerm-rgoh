@@ -8,7 +8,6 @@ terraform {
 }
 
 provider "tfe" {
-  token = var.tf_cloud_token
 }
 
 terraform {
