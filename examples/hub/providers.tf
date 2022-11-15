@@ -28,10 +28,10 @@ provider "azuread" {
 
 terraform {
   cloud {
-    organization = "redpointglobal"
+    organization = "black-devops"
 
     workspaces {
-      name = "azure-rgoh-hub-sandbox"
+      name = "argo-sandbox"
     }
   }
 }
