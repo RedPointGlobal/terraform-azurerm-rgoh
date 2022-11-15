@@ -12,10 +12,10 @@ provider "tfe" {
 
 terraform {
   cloud {
-    organization = "black-devops"
+    organization = "rxtechnica"
 
     workspaces {
-      name = "foundation"
+      name = "rxtechnica"
     }
   }
 }

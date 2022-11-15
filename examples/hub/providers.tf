@@ -28,10 +28,10 @@ provider "azuread" {
 
 terraform {
   cloud {
-    organization = "black-devops"
+    organization = "rxtechnica"
 
     workspaces {
-      name = "argo-sandbox"
+      name = "bootstrap"
     }
   }
 }

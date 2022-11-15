@@ -1,16 +1,12 @@
-resource "tfe_organization" "main" {
-  name  = "tfc-black-devops"
-  email = "musanajim@gmail.com"
-}
+#resource "tfe_organization" "main" {
+#  name  = "tfc-black-devops"
+#  email = "musanajim@gmail.com"
+#
 
 resource "tfe_workspace" "main" {
-  name         = "tfc-rgoh-onboard"
-  organization = tfe_organization.main.id
+  name         = "bootstrap"
+  organization = "rxtechnica" #tfe_organization.main.id
   tag_names    = ["argo", "sandbox", "jmusana"]
-
-  depends_on = [
-    tfe_organization.main
-  ]
 }
 
 resource "tfe_variable" "client_id" {
