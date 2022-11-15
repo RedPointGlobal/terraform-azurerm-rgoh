@@ -1,5 +1,4 @@
 data "tfe_organizations" "main" {
-  name = "black-devops"
 }
 
 resource "tfe_workspace" "main" {
