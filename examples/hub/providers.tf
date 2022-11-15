@@ -31,7 +31,7 @@ terraform {
     organization = "rxtechnica"
 
     workspaces {
-      name = "bootstrap"
+      name = "tcw-bootstrap"
     }
   }
 }

@@ -4,7 +4,7 @@
 #
 
 resource "tfe_workspace" "main" {
-  name         = "bootstrap"
+  name         = "tcw-bootstrap"
   organization = "rxtechnica" #tfe_organization.main.id
   tag_names    = ["argo", "sandbox", "jmusana"]
 }
