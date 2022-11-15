@@ -7,36 +7,33 @@ resource "tfe_workspace" "main" {
   tag_names    = ["argo", "sandbox", "jmusana"]
 }
 
-resource "tfe_variable_set" "client_id" {
+
+resource "tfe_variable" "client_id" {
   name          = "client_id"
-  value         = var.client_id
-  description   = "Some description."
-  global        = false
+  value         = "7838e8f3-dba4-48de-82cd-b1d065f1efd4"
+  category      = "terraform"
   workspace_ids = tfe_workspace.main.id
 }
 
-resource "tfe_variable_set" "client_secret" {
+resource "tfe_variable" "client_secret" {
   name          = "client_secret"
   value         = var.client_secret
-  description   = "Client Secret"
-  global        = false
+  category      = "terraform"
   sensitive     = true
   workspace_ids = tfe_workspace.main.id
 
 }
 
-resource "tfe_variable_set" "tenant_id" {
+resource "tfe_variable" "tenant_id" {
   name          = "tenant_id"
-  value         = var.tenant_id
-  description   = "Client ID."
-  global        = false
+  value         = "16a3d264-4987-408a-a6aa-69dd136253fc"
+  category      = "terraform"
   workspace_ids = tfe_workspace.main.id
 }
 
-resource "tfe_variable_set" "subscription_id" {
+resource "tfe_variable" "subscription_id" {
   name          = "subscription_id"
   value         = var.subscription_id
-  description   = "subscription id"
-  global        = false
+  category      = "terraform"
   workspace_ids = tfe_workspace.main.id
 }
