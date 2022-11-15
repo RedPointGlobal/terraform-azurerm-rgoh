@@ -31,7 +31,7 @@ terraform {
     organization = "rxtechnica"
 
     workspaces {
-      name = "tcw-bootstrap"
+      name = "tfc-rgoh-spoke"
     }
   }
 }

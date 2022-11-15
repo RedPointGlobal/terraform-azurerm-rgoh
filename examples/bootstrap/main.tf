@@ -1,12 +1,7 @@
-#resource "tfe_organization" "main" {
-#  name  = "tfc-black-devops"
-#  email = "musanajim@gmail.com"
-#
-
 resource "tfe_workspace" "main" {
-  name         = "tcw-bootstrap"
-  organization = "rxtechnica" #tfe_organization.main.id
-  tag_names    = ["argo", "sandbox", "jmusana"]
+  name         = "tfc-rgoh-spoke"
+  organization = "rxtechnica"
+#  tag_names    = ["argo", "sandbox", "jmusana"]
 }
 
 resource "tfe_variable" "client_id" {
@@ -20,6 +15,7 @@ resource "tfe_variable" "client_id" {
   ]
 }
 
+/*
 resource "tfe_variable" "client_secret" {
   key          = "client_secret"
   value        = var.client_secret
@@ -54,3 +50,4 @@ resource "tfe_variable" "subscription_id" {
     tfe_workspace.main
   ]
 }
+*/
