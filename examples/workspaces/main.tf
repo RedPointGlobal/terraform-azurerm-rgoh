@@ -1,6 +1,7 @@
 resource "tfe_workspace" "client" {
   name         = "tfc-${var.customer_name}-${var.environment}-${var.region}"
   organization = "redpointglobal"
+  working_directory = "examples/hub"
 }
 
 resource "tfe_variable" "client_id" {
