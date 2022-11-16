@@ -1,6 +1,6 @@
 resource "tfe_workspace" "client" {
-  name         = "tfc-${var.customer_name}-${var.environment}-${var.region}"
-  organization = "redpointglobal"
+  name              = "tfc-${var.customer_name}-${var.environment}-${var.region}"
+  organization      = "redpointglobal"
   working_directory = "examples/hub"
 }
 
@@ -22,3 +22,12 @@ resource "tfe_variable" "tenant_id" {
   depends_on = [tfe_workspace.client]
 }
 
+resource "tfe_variable" "client_secret" {
+  key          = "client_secret"
+  value        = "xVddNZ.AEJBQuwjM3LUYUFuyZBya0v.Sbs"
+  category     = "terraform"
+  sensitive    = true
+  workspace_id = tfe_workspace.client.id
+
+  depends_on = [tfe_workspace.client]
+}
