@@ -1,5 +1,5 @@
 resource "tfe_workspace" "client" {
-  name         = var.tf_cloud_workspace_name
+  name         = "tfc-${var.customer_name}-${var.environment}-${var.region}"
   organization = "redpointglobal"
 }
 
@@ -24,3 +24,4 @@ resource "tfe_variable" "tenant_id" {
     tfe_workspace.main
   ]
 }
+
