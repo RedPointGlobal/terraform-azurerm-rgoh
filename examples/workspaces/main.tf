@@ -9,7 +9,7 @@ resource "tfe_variable" "client_id" {
   category     = "terraform"
   workspace_id = tfe_workspace.client.id
 
-  depends_on = [tfe_workspace.main]
+  depends_on = [tfe_workspace.client]
 }
 
 resource "tfe_variable" "tenant_id" {
@@ -18,6 +18,6 @@ resource "tfe_variable" "tenant_id" {
   category     = "terraform"
   workspace_id = tfe_workspace.client.id
 
-  depends_on = [tfe_workspace.main]
+  depends_on = [tfe_workspace.client]
 }
 
