@@ -14,20 +14,6 @@ resource "tfe_variable" "client_id" {
   ]
 }
 
-/*
-resource "tfe_variable" "client_secret" {
-  key          = "client_secret"
-  value        = var.client_secret
-  category     = "terraform"
-  sensitive    = true
-  workspace_id = tfe_workspace.main.id
-
-  depends_on = [
-    tfe_workspace.main
-  ]
-
-}
-
 resource "tfe_variable" "tenant_id" {
   key          = "tenant_id"
   value        = "16a3d264-4987-408a-a6aa-69dd136253fc"
@@ -38,15 +24,3 @@ resource "tfe_variable" "tenant_id" {
     tfe_workspace.main
   ]
 }
-
-resource "tfe_variable" "subscription_id" {
-  key          = "subscription_id"
-  value        = var.subscription_id
-  category     = "terraform"
-  workspace_id = tfe_workspace.main.id
-
-  depends_on = [
-    tfe_workspace.main
-  ]
-}
-*/
