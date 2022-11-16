@@ -31,7 +31,7 @@ terraform {
     organization = "redpointglobal"
 
     workspaces {
-      name = "tfc-sandbox-02"
+      name = "tfc-acmecorp-dev-eastus2"
     }
   }
 }
