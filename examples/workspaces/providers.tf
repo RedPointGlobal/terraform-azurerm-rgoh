@@ -13,10 +13,10 @@ provider "tfe" {
 
 terraform {
   cloud {
-    organization = "rxtechnica"
+    organization = "redpointglobal"
 
     workspaces {
-      name = "rxtechnica"
+      name = "tfc-sandbox-01"
     }
   }
 }

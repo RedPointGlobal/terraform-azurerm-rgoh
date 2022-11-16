@@ -28,10 +28,10 @@ provider "azuread" {
 
 terraform {
   cloud {
-    organization = "rxtechnica"
+    organization = "redpointglobal"
 
     workspaces {
-      name = "rxtechnica"
+      name = "tfc-sandbox-02"
     }
   }
 }

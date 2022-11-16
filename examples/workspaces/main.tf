@@ -1,7 +1,6 @@
 resource "tfe_workspace" "main" {
-  name         = "tfc-rgoh-spoke"
-  organization = "rxtechnica"
-#  tag_names    = ["argo", "sandbox", "jmusana"]
+  name         = "tfc-sandbox-02"
+  organization = "redpointglobal"
 }
 
 resource "tfe_variable" "client_id" {
