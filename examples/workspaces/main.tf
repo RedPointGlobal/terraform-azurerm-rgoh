@@ -1,5 +1,5 @@
-resource "tfe_workspace" "main" {
-  name         = "tfc-sandbox-02"
+resource "tfe_workspace" "client" {
+  name         = var.tf_cloud_workspace_name
   organization = "redpointglobal"
 }
 
